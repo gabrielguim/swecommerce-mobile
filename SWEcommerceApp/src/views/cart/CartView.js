@@ -20,33 +20,47 @@ class CartView extends Component {
 
     render() {
         
-        var totalCart = 0
-        Object.values(this.props.groupedCart).forEach(item => {
-            totalCart += parseFloat(item.totalPrice)
-        });       
-
-        return(
-            <View style={styles.container}>
-                <FlatList
-                    style={styles.list}
-                    data={Object.keys(this.props.groupedCart)}
-                    renderItem={(key) => <CarItem product={this.props.groupedCart[key.item]} />}
-                    keyExtractor={(key) => key}
-                />
-                <View style={styles.tabBar}>
-                    <TouchableOpacity 
-                        style={styles.tabItem}
-                        onPress={() => { this.props.clearCart() }}>
-                        <Icon name="clear" size={25} />
-                        <Text style={styles.tabTitle}>Clear Cart</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.tabItem}>
-                        <Icon name="attach-money" size={25} />
-                        <Text style={styles.tabTitle}>Total: R$ {totalCart}</Text>
+        if (this.props.cart.length === 0) {
+            return (
+                <View style={styles.emptyContainer}>
+                    <TouchableOpacity
+                        style={styles.emptyButton}
+                        onPress={() => { this.props.navigation.navigate('Products') }}>
+                        <Icon name="mood-bad" size={25} />
+                        <Text style={styles.emptyTitle}>Ops! Nada no Carrinho</Text>
+                        <Text style={styles.emptyTitle}>Veja nossa lista de Produtos!</Text>
                     </TouchableOpacity>
                 </View>
-            </View>
-        )
+            )
+        } else {
+            var totalCart = 0
+            Object.values(this.props.groupedCart).forEach(item => {
+                totalCart += parseFloat(item.totalPrice)
+            });
+
+            return (
+                <View style={styles.container}>
+                    <FlatList
+                        style={styles.list}
+                        data={Object.keys(this.props.groupedCart)}
+                        renderItem={(key) => <CarItem product={this.props.groupedCart[key.item]} productKey={key} />}
+                        keyExtractor={(key) => key}
+                    />
+                    <View style={styles.tabBar}>
+                        <TouchableOpacity
+                            style={styles.tabItem}
+                            onPress={() => { this.props.clearCart() }}>
+                            <Icon name="remove-shopping-cart" size={25} />
+                            <Text style={styles.tabTitle}>Limpar Carrinho</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.tabItem}>
+                            <Icon name="attach-money" size={25} />
+                            <Text style={styles.tabTitle}>Total: R$ {totalCart}</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+            )
+        }
     }
 }
 
@@ -67,6 +81,11 @@ function mapDispatchToProps(dispatch) {
 export default connect(mapStateToProps, mapDispatchToProps)(CartView)
 
 const styles = StyleSheet.create({
+    emptyContainer: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
     container: {
         flex: 1
     },
@@ -84,6 +103,20 @@ const styles = StyleSheet.create({
     tabItem: {
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    emptyButton: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        elevation: 4,
+        borderRadius: 4,
+        paddingVertical: 12,
+        paddingHorizontal: 24,
+        backgroundColor: 'white'
+    },
+    emptyTitle: {
+        fontSize: 18,
+        color: '#3c3c3c',
+        paddingTop: 4
     },
     tabTitle: {
         fontSize: 14,

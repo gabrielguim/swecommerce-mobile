@@ -11,7 +11,7 @@ export default HomeTabNavigator = createMaterialBottomTabNavigator({
     Products: {
         screen: ProductStackNavigator,
         navigationOptions: {
-            tabBarLabel: 'Products',
+            tabBarLabel: 'Produtos',
             tabBarIcon: ({tintColor}) => (
                 <Icon name="md-list" color={tintColor} size={24} />
             )
@@ -20,7 +20,7 @@ export default HomeTabNavigator = createMaterialBottomTabNavigator({
     Cart: {
         screen: CartView,
         navigationOptions: {
-            tabBarLabel: 'Cart',
+            tabBarLabel: 'Carrinho',
             tabBarIcon: ({ tintColor }) => (
                 <Icon name="md-cart" color={tintColor} size={24} />
             )
@@ -29,7 +29,7 @@ export default HomeTabNavigator = createMaterialBottomTabNavigator({
     Admin: {
         screen: AdminView,
         navigationOptions: {
-            tabBarLabel: 'Admin',
+            tabBarLabel: 'Opções',
             tabBarIcon: ({ tintColor }) => (
                 <Icon name="ios-settings" color={tintColor} size={24} />
             )

@@ -3,7 +3,8 @@ import {
     View,
     Text,
     StyleSheet,
-    TouchableOpacity
+    TouchableOpacity,
+    Dimensions
 } from 'react-native'
 
 import { connect } from 'react-redux'
@@ -21,18 +22,21 @@ class ProductDetail extends Component {
 
         return (
             <View style={styles.container}>
-                <Text style={styles.title}>{product.name}</Text>
-                <View style={styles.priceContainer}>
-                    <Text style={styles.price}>R$ {product.int},</Text>
-                    <Text style={styles.priceCent}>{product.cent}</Text>
-                </View>
-                <View style={styles.buttons}>
-                    <TouchableOpacity
-                        style={styles.buttonAdd}
-                        onPress={() => this.props.addToCart(product)}>
-                        <Icon name="add-shopping-cart" color={'white'} size={25} />
-                        <Text style={styles.buttonAddText}>Add to Cart</Text>
-                    </TouchableOpacity>
+                <View style={styles.productContainer}>
+                    <Text style={styles.title}>{product.name}</Text>
+                    <Text style={styles.promotionText}>{product.promotion ? product.promotion.name : '-'}</Text>
+                    <View style={styles.priceContainer}>
+                        <Text style={styles.price}>R$ {product.int},</Text>
+                        <Text style={styles.priceCent}>{product.cent}</Text>
+                    </View>
+                    <View style={styles.buttons}>
+                        <TouchableOpacity
+                            style={styles.buttonAdd}
+                            onPress={() => this.props.addToCart(product)}>
+                            <Icon name="add-shopping-cart" color={'white'} size={25} />
+                            <Text style={styles.buttonAddText}>Adicionar ao Carrinho</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </View>
         )
@@ -51,9 +55,12 @@ export default connect(null, mapDispatchToProps)(ProductDetail)
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        height: 300,
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'center'
+    },
+    productContainer: {
+        height: Dimensions.get('window').height / 2,
+        width: Dimensions.get('window').width / 1.5,
         marginHorizontal: 18,
         paddingHorizontal: 6,
         paddingVertical: 4,
@@ -71,7 +78,6 @@ const styles = StyleSheet.create({
         alignSelf: 'center'
     },
     priceContainer: {
-        flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'row',
@@ -85,6 +91,17 @@ const styles = StyleSheet.create({
         fontSize: 32,
         bottom: 2,
         alignSelf: 'flex-end'
+    },
+    promotionText: {
+        justifyContent: 'center',
+        alignSelf: 'center',
+        fontSize: 16,
+        fontWeight: 'bold',
+        paddingHorizontal: 12,
+        paddingVertical: 4,
+        backgroundColor: '#960a0a',
+        borderRadius: 32,
+        color: 'white'
     },
     buttons: {
         flex: 1,

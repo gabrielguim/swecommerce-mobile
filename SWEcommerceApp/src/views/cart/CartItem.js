@@ -5,12 +5,14 @@ import {
     StyleSheet
 } from 'react-native'
 
-import Icon from 'react-native-vector-icons/MaterialIcons';
-
 class CartItem extends Component {
     render() {               
         let item = this.props.product
         let product = item.product
+
+        let promoText = product.promotion
+                            ? (this.props.productKey.item.includes('promo') ? product.promotion.name : '-')
+                            : '-'       
 
         return (
             <View style={styles.container}>
@@ -20,7 +22,7 @@ class CartItem extends Component {
                         <Text style={styles.productName}>{product.name}</Text>
                     </View>
                     <View style={styles.rightContainer}>
-                        <Text style={styles.promotionText}>{product.promotion ? product.promotion.name : '-'}</Text>
+                        <Text style={styles.promotionText}>{promoText}</Text>
                         <Text style={styles.priceText}>R$ {item.totalPrice}</Text>
                     </View>
                 </View>

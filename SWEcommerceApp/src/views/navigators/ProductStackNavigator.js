@@ -10,14 +10,14 @@ export default ProductStackNavigator = createStackNavigator({
     screen: ProductListView, 
     navigationOptions: { 
       headerRight: (<CustomHeader />), 
-      title: 'Products'
+      title: 'Produtos'
     }
   },
   ProductDetail: {
     screen: ProductDetail,
     navigationOptions: {
       headerRight: (<CustomHeader />), 
-      title: 'Product Details'
+      title: 'Detalhes do Produto'
     }
   }
 });

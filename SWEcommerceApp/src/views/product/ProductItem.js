@@ -32,13 +32,13 @@ class ProductItem extends Component {
                         style={styles.buttonSee}
                         onPress={() => this.props.navigation.navigate('ProductDetail', { product: product })}>
                         <Icon name="details" color={'white'} size={25} />
-                        <Text style={styles.buttonSeeText}>Details</Text>
+                        <Text style={styles.buttonSeeText}>Detalhes</Text>
                     </TouchableOpacity>
                     <TouchableOpacity 
                         style={styles.buttonAdd}
                         onPress={() => this.props.addToCart(product)}>
                         <Icon name="add-shopping-cart" color={'white'} size={25} />
-                        <Text style={styles.buttonAddText}>Add to Cart</Text>
+                        <Text style={styles.buttonAddText}>Adicionar ao Carrinho</Text>
                     </TouchableOpacity>
                 </View>
             </View>
