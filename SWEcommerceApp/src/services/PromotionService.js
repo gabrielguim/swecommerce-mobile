@@ -20,4 +20,4 @@ class PromotionService {
     }
 }
 
-export default UserService;
+export default PromotionService;

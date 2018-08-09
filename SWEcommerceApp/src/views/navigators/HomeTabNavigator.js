@@ -1,7 +1,7 @@
 import React from 'react'
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
 
-import CartView from '../CartView'
+import CartView from '../cart/CartView'
 import AdminView from '../AdminView'
 import ProductStackNavigator from './ProductStackNavigator'
 

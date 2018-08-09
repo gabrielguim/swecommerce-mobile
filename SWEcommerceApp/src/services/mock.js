@@ -1,3 +1,5 @@
+// mock data because the current project don't need to consume an API :)
+
 export default mock = {
     products: [
         {

@@ -1,5 +1,6 @@
 import React from 'react'
 import { createStackNavigator } from 'react-navigation'
+import { Header } from 'react-navigation'
 import HomeTabNavigator from './HomeTabNavigator'
 import CustomHeader from './CustomHeader'
 
@@ -7,17 +8,23 @@ const HomeNavigator = createStackNavigator({
     HomeTabNavigator: {
         screen: HomeTabNavigator,
         navigationOptions: {
-            header: () => <CustomHeader />,
-            headerTitle: "SW e-commerce"      
+            header: (headerOptions) =>
+                Object.values(headerOptions.descriptors)[0].navigation.state.index === 0
+                ? null
+                : <Header {...headerOptions} />  
+            ,
+            headerRight: (<CustomHeader/>),
+            title: 'SW E-commerce'
         }
     }
 }, {
     navigationOptions: {
         headerStyle: {
-            backgroundColor: "#960a0a"
+            backgroundColor: 'white',
+            elevation: 3
         },
         headerTitleStyle: {
-            color: "#fff",
+            color: 'black',
             zIndex: 1,
             fontSize: 20,
             lineHeight: 23,

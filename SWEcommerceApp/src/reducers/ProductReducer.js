@@ -6,10 +6,13 @@ export default function ProductReducer(state = initialState, action) {
         case types.PRODUCT_CREATE:
             return {
                 ...state,
-                products: state.products.push(action.product)
+                products: [...state.products, action.product]
             };
-        case types.PRODUCT_READ:
-            return state.products.length == 0 ? aciton.products : state.products;
+        case types.PRODUCT_READ:                    
+            return {
+                ...state,
+                products: state.products.length == 0 ? action.products : state.products
+            };
         case types.PRODUCT_UPDATE:
             return {
                 ...state,

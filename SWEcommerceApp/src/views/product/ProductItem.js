@@ -11,23 +11,29 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { addToCart } from '../../actions/CartAction'
 
-class ProductDetail extends Component {
-    render() {
-        let product = this.props.navigation.getParam('product')
-        let splittedPrice = String(product.price).split(".")
-
+class ProductItem extends Component {
+    render() {        
+        let product = this.props.product.item
+        let splittedPrice = String(product.price).split(".")        
+        
         product["int"] = splittedPrice[0]
-        product["cent"] = splittedPrice[1] ? splittedPrice[1] : '00'
+        product["cent"] = splittedPrice[1] ? splittedPrice[1] : '00' 
 
-        return (
+        return(
             <View style={styles.container}>
-                <Text style={styles.title}>{product.name}</Text>
+                <Text style={styles.title}>{ product.name }</Text>
                 <View style={styles.priceContainer}>
                     <Text style={styles.price}>R$ {product.int},</Text>
                     <Text style={styles.priceCent}>{product.cent}</Text>
                 </View>
                 <View style={styles.buttons}>
-                    <TouchableOpacity
+                    <TouchableOpacity 
+                        style={styles.buttonSee}
+                        onPress={() => this.props.navigation.navigate('ProductDetail', { product: product })}>
+                        <Icon name="details" color={'white'} size={25} />
+                        <Text style={styles.buttonSeeText}>Details</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity 
                         style={styles.buttonAdd}
                         onPress={() => this.props.addToCart(product)}>
                         <Icon name="add-shopping-cart" color={'white'} size={25} />
@@ -45,15 +51,10 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-export default connect(null, mapDispatchToProps)(ProductDetail)
-
+export default connect(null, mapDispatchToProps)(ProductItem)
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        height: 300,
-        justifyContent: 'center',
-        alignItems: 'center',
         marginHorizontal: 18,
         paddingHorizontal: 6,
         paddingVertical: 4,
@@ -79,18 +80,18 @@ const styles = StyleSheet.create({
     },
     price: {
         fontSize: 42,
-        alignSelf: 'flex-end'
+        alignSelf: 'flex-end' 
     },
     priceCent: {
         fontSize: 32,
         bottom: 2,
-        alignSelf: 'flex-end'
+        alignSelf: 'flex-end' 
     },
     buttons: {
         flex: 1,
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between' 
     },
     buttonAdd: {
         flex: 1,
