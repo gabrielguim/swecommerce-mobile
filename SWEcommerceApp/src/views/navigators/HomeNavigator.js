@@ -13,7 +13,7 @@ const HomeNavigator = createStackNavigator({
                 ? null
                 : <Header {...headerOptions} />  
             ,
-            headerRight: (<CustomHeader/>),
+            headerRight: (<CustomHeader />),
             title: 'SW E-commerce'
         }
     }

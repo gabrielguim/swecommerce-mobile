@@ -22,6 +22,7 @@ class ProductItem extends Component {
         return(
             <View style={styles.container}>
                 <Text style={styles.title}>{ product.name }</Text>
+                <Text style={styles.promotionText}>{product.promotion ? product.promotion.name : '-'}</Text>
                 <View style={styles.priceContainer}>
                     <Text style={styles.price}>R$ {product.int},</Text>
                     <Text style={styles.priceCent}>{product.cent}</Text>
@@ -70,6 +71,16 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: '#960a0a',
         alignSelf: 'center'
+    },
+    promotionText: {
+        fontSize: 16,
+        alignSelf: 'center',
+        fontWeight: 'bold',
+        paddingHorizontal: 12,
+        paddingVertical: 4,
+        backgroundColor: '#960a0a',
+        borderRadius: 32,
+        color: 'white'
     },
     priceContainer: {
         flex: 1,

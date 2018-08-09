@@ -7,6 +7,12 @@ export function addToCart(product) {
     };
 }
 
+export function getCart() {
+    return {
+        type: types.CART_READ
+    }
+}
+
 export function clearCart() {
     return {
         type: types.CART_CLEAR

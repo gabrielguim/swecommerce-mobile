@@ -5,6 +5,7 @@ export const PRODUCT_DELETE = 'swapp/product/DELETE';
 
 export const CART_ADD_TO = 'swapp/cart/ADD_TO';
 export const CART_CLEAR = 'swapp/cart/CLEAR';
+export const CART_READ = 'swapp/cart/READ';
 
 export const PROMOTION_CREATE = 'swapp/promotion/CREATE';
 export const PROMOTION_READ = 'swapp/promotion/READ';

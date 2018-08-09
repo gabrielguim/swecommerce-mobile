@@ -10,7 +10,7 @@ import IconBadge from 'react-native-icon-badge';
 import { connect } from 'react-redux';
 
 class CustomHeader extends Component {
-    render() {
+    render() {       
         return (
             <TouchableOpacity>
                 <View style={styles.badge}>

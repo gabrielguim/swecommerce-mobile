@@ -1,5 +1,6 @@
 export default {
     products: [],
     promotions: [],
-    cart: []
+    cart: [],
+    groupedCart: {}
 };

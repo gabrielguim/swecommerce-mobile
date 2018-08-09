@@ -5,7 +5,14 @@ export default mock = {
         {
             id: 0,
             name: 'Produto 1',
-            price: 40
+            price: 5,
+            promotion: {
+                id: 0,
+                type: 'AMOUNT',
+                name: '3 por 10 reais',
+                value: 10,
+                condition: 3
+            }
         },
         {
             id: 1,
@@ -15,7 +22,14 @@ export default mock = {
         {
             id: 2,
             name: 'Produto 3',
-            price: 35
+            price: 35,
+            promotion: {
+                id: 1,
+                type: 'PERCENTAGE',
+                name: 'Pague 1 e Leve 2',
+                value: 50,
+                condition: 2
+            }
         }
     ],
     promotions: [
