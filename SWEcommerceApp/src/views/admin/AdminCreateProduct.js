@@ -5,11 +5,11 @@ import {
     StyleSheet
 } from 'react-native'
 
-export default class AdminView extends Component {
+export default class AdminCreateProduct extends Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text>AdminView</Text>
+                <Text>CreateProduct</Text>
             </View>
         )
     }

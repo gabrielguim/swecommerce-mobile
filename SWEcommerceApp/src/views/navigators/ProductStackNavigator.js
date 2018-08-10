@@ -8,16 +8,16 @@ import CustomHeader from './CustomHeader';
 export default ProductStackNavigator = createStackNavigator({
   ProductListView: {
     screen: ProductListView, 
-    navigationOptions: { 
-      headerRight: (<CustomHeader />), 
+    navigationOptions: (headerOptions) => ({
+      headerRight: (<CustomHeader headerOptions={headerOptions.navigation} />),
       title: 'Produtos'
-    }
+    })
   },
   ProductDetail: {
     screen: ProductDetail,
-    navigationOptions: {
-      headerRight: (<CustomHeader />), 
+    navigationOptions: (headerOptions) => ({
+      headerRight: (<CustomHeader headerOptions={headerOptions.navigation} />),
       title: 'Detalhes do Produto'
-    }
+    })
   }
 });

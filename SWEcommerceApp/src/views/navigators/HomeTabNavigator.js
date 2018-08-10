@@ -2,7 +2,7 @@ import React from 'react'
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs'
 
 import CartView from '../cart/CartView'
-import AdminView from '../AdminView'
+import AdminStackNavigator from './AdminStackNavigator'
 import ProductStackNavigator from './ProductStackNavigator'
 
 import Icon from 'react-native-vector-icons/Ionicons'
@@ -27,7 +27,7 @@ export default HomeTabNavigator = createMaterialBottomTabNavigator({
         }
     },
     Admin: {
-        screen: AdminView,
+        screen: AdminStackNavigator,
         navigationOptions: {
             tabBarLabel: 'Opções',
             tabBarIcon: ({ tintColor }) => (

@@ -10,9 +10,9 @@ import IconBadge from 'react-native-icon-badge';
 import { connect } from 'react-redux';
 
 class CustomHeader extends Component {
-    render() {       
+    render() {               
         return (
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => this.props.headerOptions.navigate('Cart')}>
                 <View style={styles.badge}>
                     <IconBadge
                         MainElement={<Icon style={styles.navItem} color={'#960a0a'} name="shopping-cart" size={28} />}

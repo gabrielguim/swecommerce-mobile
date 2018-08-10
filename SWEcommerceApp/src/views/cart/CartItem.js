@@ -54,10 +54,6 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-end',
         bottom: 0
     },
-    productPrice: {
-        fontSize: 18,
-        fontWeight: 'bold'
-    },
     itemContainer: {
         padding: 16,
         flexDirection: 'row',

@@ -9,3 +9,5 @@ export const CART_READ = 'swapp/cart/READ';
 
 export const PROMOTION_CREATE = 'swapp/promotion/CREATE';
 export const PROMOTION_READ = 'swapp/promotion/READ';
+export const PROMOTION_UPDATE = 'swapp/promotion/UPDATE';
+export const PROMOTION_DELETE = 'swapp/promotion/DELETE';

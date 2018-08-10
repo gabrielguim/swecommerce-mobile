@@ -7,15 +7,16 @@ import CustomHeader from './CustomHeader'
 const HomeNavigator = createStackNavigator({
     HomeTabNavigator: {
         screen: HomeTabNavigator,
-        navigationOptions: {
+        navigationOptions: (headerOptions) => ({
             header: (headerOptions) =>
-                Object.values(headerOptions.descriptors)[0].navigation.state.index === 0
-                ? null
-                : <Header {...headerOptions} />  
+                Object.values(headerOptions.descriptors)[0].navigation.state.index != 1
+                    ? null
+                    : <Header {...headerOptions} />
             ,
-            headerRight: (<CustomHeader />),
+
+            headerRight: (<CustomHeader headerOptions={headerOptions.navigation} />),
             title: 'SW E-commerce'
-        }
+        })
     }
 }, {
     navigationOptions: {

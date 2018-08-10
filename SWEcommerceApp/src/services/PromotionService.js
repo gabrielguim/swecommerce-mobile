@@ -1,3 +1,5 @@
+import mock from './mock'
+
 const calculateAmountPromotion = (promotion, price, amount) => {
     if (promotion.condition === 0) {
         return amount * promotion.value;
@@ -21,22 +23,7 @@ const calculatePercentagePromotion = (promotion, price, amount) => {
 
 class PromotionService {
     static getPromotions() {
-        return [
-            {
-                id: 0,
-                type: 'AMOUNT',
-                name: '3 por 10 reais',
-                value: 10,
-                condition: 3
-            },
-            {
-                id: 1,
-                type: 'PERCENTAGE',
-                name: 'Pague 1 e Leve 2',
-                value: 50,
-                condition: 2
-            }
-        ]
+        return mock.promotions
     }
 
     static calculatePromotion(promotion, price, amount) {
