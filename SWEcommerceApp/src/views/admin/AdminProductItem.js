@@ -15,7 +15,7 @@ import { deleteProduct } from '../../actions/ProductAction'
 class AdminProductItem extends Component {
     render() {        
         let product = this.props.product.item
-        let splittedPrice = String(product.price).split(".")        
+        let splittedPrice = parseFloat(product.price).toFixed(2).split(".")        
         
         product["int"] = splittedPrice[0]
         product["cent"] = splittedPrice[1] ? splittedPrice[1] : '00'        
@@ -33,7 +33,7 @@ class AdminProductItem extends Component {
                     <View style={styles.rowContainer}>
                         <TouchableOpacity
                             style={styles.button}
-                            onPress={() => this.props.navigation.navigate('AdminCreateProduct', { product: product })}>
+                            onPress={() => this.props.navigation.navigate('AdminCreateProduct', { product: product, title: "Editar Produto" })}>
                             <Icon name="edit" size={24} />
                             <Text style={styles.buttonText}>Editar</Text>
                         </TouchableOpacity>
@@ -42,7 +42,7 @@ class AdminProductItem extends Component {
                             onPress={() => {
                                 Alert.alert(
                                     'Remover Produto',
-                                    'Tem certeza que deseja remover o Produto ' + product.name,
+                                    'Tem certeza que deseja remover "' + product.name + '"?',
                                     [
                                         { text: 'Não', onPress: () => { }, style: 'cancel' },
                                         { text: 'Sim', onPress: () => this.props.deleteProduct(product) },

@@ -14,9 +14,18 @@ export default function PromotionReducer(state = initialState, action) {
                 promotions: state.promotions.length == 0 ? action.promotions : state.promotions
             };
         case types.PROMOTION_UPDATE:
+            var newPromotions = []
+            state.promotions.forEach((promotion) => {
+                if (promotion.id === action.promotion.id) {
+                    newPromotions.push(action.promotion)
+                } else {
+                    newPromotions.push(promotion)
+                }
+            });
+
             return {
                 ...state,
-                promotions: state.promotions.set(action.promotions)
+                promotions: newPromotions
             };
         case types.PROMOTION_DELETE:
             var newPromotions = []

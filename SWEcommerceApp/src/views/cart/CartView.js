@@ -55,7 +55,7 @@ class CartView extends Component {
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.tabItem}>
                             <Icon name="attach-money" size={25} />
-                            <Text style={styles.tabTitle}>Total: R$ {totalCart}</Text>
+                            <Text style={styles.tabTitle}>Total: R$ {totalCart.toFixed(2)}</Text>
                         </TouchableOpacity>
                     </View>
                 </View>

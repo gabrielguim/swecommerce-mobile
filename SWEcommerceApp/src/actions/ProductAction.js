@@ -17,7 +17,7 @@ export function getProducts() {
     }
 }
 
-export function updateProduct(product) {
+export function updateProduct(product) {    
     return {
         type: types.PRODUCT_UPDATE,
         product: product

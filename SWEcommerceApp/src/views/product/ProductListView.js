@@ -16,7 +16,7 @@ class ProductListView extends Component {
         this.props.getProducts();        
     }
 
-    render() {        
+    render() {               
         return(
             <View style={styles.container}>
                 <FlatList
@@ -30,7 +30,7 @@ class ProductListView extends Component {
     }
 }
 
-function mapStateToProps(state) {        
+function mapStateToProps(state) {    
     return {
         products: state.ProductReducer.products
     }

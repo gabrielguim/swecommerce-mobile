@@ -26,7 +26,7 @@ class PromotionService {
         return mock.promotions
     }
 
-    static calculatePromotion(promotion, price, amount) {
+    static calculatePromotion(promotion, price, amount) {        
         if (promotion.id != '-1') {
             if (promotion.type === 'AMOUNT')
                 return calculateAmountPromotion(promotion, price, amount)

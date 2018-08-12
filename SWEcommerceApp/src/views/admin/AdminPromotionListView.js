@@ -32,7 +32,7 @@ class AdminPromotionListView extends Component {
 
 function mapStateToProps(state) {        
     return {
-        promotions: state.PromotionReducer.promotions
+        promotions: state.ProductReducer.promotions
     }
 }
 

@@ -12,7 +12,7 @@ class CartItem extends Component {
 
         let promoText = product.promotion
                             ? (this.props.productKey.item.includes('promo') ? product.promotion.name : '-')
-                            : '-'       
+                            : '-'               
 
         return (
             <View style={styles.container}>
@@ -23,7 +23,7 @@ class CartItem extends Component {
                     </View>
                     <View style={styles.rightContainer}>
                         <Text style={styles.promotionText}>{promoText}</Text>
-                        <Text style={styles.priceText}>R$ {item.totalPrice}</Text>
+                        <Text style={styles.priceText}>R$ {parseFloat(item.totalPrice).toFixed(2)}</Text>
                     </View>
                 </View>
             </View>

@@ -13,8 +13,8 @@ import { addToCart } from '../../actions/CartAction'
 
 class ProductItem extends Component {
     render() {        
-        let product = this.props.product.item
-        let splittedPrice = String(product.price).split(".")        
+        var product = this.props.product.item
+        var splittedPrice = parseFloat(product.price).toFixed(2).split(".")        
         
         product["int"] = splittedPrice[0]
         product["cent"] = splittedPrice[1] ? splittedPrice[1] : '00' 
@@ -38,7 +38,7 @@ class ProductItem extends Component {
                         style={styles.buttonAdd}
                         onPress={() => this.props.addToCart(product)}>
                         <Icon name="add-shopping-cart" color={'white'} size={25} />
-                        <Text style={styles.buttonAddText}>Adicionar ao Carrinho</Text>
+                        <Text style={styles.buttonAddText}>Pôr no Carrinho</Text>
                     </TouchableOpacity>
                 </View>
             </View>

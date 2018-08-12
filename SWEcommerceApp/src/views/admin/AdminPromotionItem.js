@@ -11,6 +11,11 @@ import { connect } from 'react-redux'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { deletePromotion } from '../../actions/PromotionAction'
+import { getProducts } from '../../actions/ProductAction'
+
+const delay = (ms) => new Promise(resolve =>
+    setTimeout(resolve, ms)
+);
 
 class AdminPrmotionItem extends Component {
     render() {
@@ -25,7 +30,7 @@ class AdminPrmotionItem extends Component {
                     <View style={styles.rowContainer}>
                         <TouchableOpacity
                             style={styles.button}
-                            onPress={() => this.props.navigation.navigate('AdminCreatePromotion', { promotion: promotion })}>
+                            onPress={() => this.props.navigation.navigate('AdminCreatePromotion', { promotion: promotion, title: "Editar Promoção" })}>
                             <Icon name="edit" size={24} />
                             <Text style={styles.buttonText}>Editar</Text>
                         </TouchableOpacity>
@@ -34,10 +39,13 @@ class AdminPrmotionItem extends Component {
                             onPress={() => {
                                 Alert.alert(
                                     'Remover Promoção',
-                                    'Tem certeza que deseja remover a Promoção ' + promotion.name,
+                                    'Tem certeza que deseja remover "' + promotion.name + '"?',
                                     [
                                         { text: 'Não', onPress: () => { }, style: 'cancel' },
-                                        { text: 'Sim', onPress: () => this.props.deletePromotion(promotion) },
+                                        { text: 'Sim', onPress: () => {
+                                            delay(1000).then(() => { this.props.getProducts() })
+                                            this.props.deletePromotion(promotion)
+                                        }},
                                     ]
                                 )
                             }}>
@@ -53,7 +61,8 @@ class AdminPrmotionItem extends Component {
 
 function mapDispatchToProps(dispatch) {
     return {
-        deletePromotion: (promotion) => dispatch(deletePromotion(promotion))
+        deletePromotion: (promotion) => dispatch(deletePromotion(promotion)),
+        getProducts: () => dispatch(getProducts())
     }
 }
 

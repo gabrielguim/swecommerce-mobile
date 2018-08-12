@@ -5,18 +5,18 @@ export default mock = {
         {
             id: 0,
             name: 'Produto 1',
-            price: 5,
+            price: "5.00",
             promotionId: 0
         },
         {
             id: 1,
             name: 'Produto 2',
-            price: 20
+            price: "20.00"
         },
         {
             id: 2,
             name: 'Produto 3',
-            price: 35,
+            price: "35.00",
             promotionId: 1,
         }
     ],

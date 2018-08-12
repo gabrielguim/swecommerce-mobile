@@ -21,9 +21,9 @@ export default AdminStackNavigator = createStackNavigator({
   },
   AdminCreateProduct: {
     screen: AdminCreateProduct,
-    navigationOptions: {
-      title: 'Criar Produto'
-    }
+    navigationOptions: ({navigation}) => ({
+      title: navigation.getParam('title', 'Criar Produto')
+    })
   },
   AdminPromotionListView: {
     screen: AdminPromotionListView,
@@ -33,9 +33,9 @@ export default AdminStackNavigator = createStackNavigator({
   },
   AdminCreatePromotion: {
     screen: AdminCreatePromotion,
-    navigationOptions: {
-      title: 'Criar Promoção'
-    }
+    navigationOptions: ({ navigation }) => ({
+      title: navigation.getParam('title', 'Criar Promoção')
+    })
   }
   
 });
